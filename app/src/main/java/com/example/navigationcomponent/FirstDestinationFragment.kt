@@ -2,17 +2,15 @@ package com.example.navigationcomponent
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.navigation.Navigation
-import kotlinx.android.synthetic.main.fragment_first_destination.view.*
+import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.fragment_first_destination.*
 
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class FirstDestinationFragment : Fragment() {
+class FirstDestinationFragment : Fragment(R.layout.fragment_first_destination) {
 
     private var param1: String? = null
     private var param2: String? = null
@@ -25,20 +23,17 @@ class FirstDestinationFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_first_destination, container,
-            false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupNavigation()
 
-        view.firstScreen.setOnClickListener{
-            Navigation.findNavController(view).navigate(R.id.firstDestinationToSecondDestination)
+    }
+
+    private fun setupNavigation(){
+        firstScreen.setOnClickListener{
+            findNavController().navigate(R.id.firstDestinationToSecondDestination)
         }
-
-
-        return view
+        // here is define the action of the textView, when click the navigation to another fragment
     }
 
     companion object {

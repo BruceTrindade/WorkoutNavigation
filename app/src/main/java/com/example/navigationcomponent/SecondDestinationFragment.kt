@@ -6,12 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
-import kotlinx.android.synthetic.main.fragment_secund_destination.view.*
+import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.fragment_first_destination.*
+import kotlinx.android.synthetic.main.fragment_second_destination.*
+import kotlinx.android.synthetic.main.fragment_second_destination.view.*
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class SecundDestinationFragment : Fragment() {
+class SecondDestinationFragment : Fragment(R.layout.fragment_second_destination) {
     private var param1: String? = null
     private var param2: String? = null
 
@@ -23,24 +26,23 @@ class SecundDestinationFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_secund_destination, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupSecondNavigation()
 
-        view.secondScreen.setOnClickListener{
-            Navigation.findNavController(view).navigate(R.id.secondDestinationToFirstDestination)
+    }
+
+    private fun setupSecondNavigation(){
+        secondScreen.setOnClickListener{
+            findNavController().navigate(R.id.secondDestinationToFirstDestination)
         }
-
-        return view
+        // here is define the action of the textView, when click the navigation to another fragment
     }
 
     companion object {
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            SecundDestinationFragment().apply {
+            SecondDestinationFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

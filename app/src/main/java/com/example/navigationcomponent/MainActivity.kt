@@ -9,3 +9,5 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 }
+
+// here i use -navhost- in xml and start my_navigation

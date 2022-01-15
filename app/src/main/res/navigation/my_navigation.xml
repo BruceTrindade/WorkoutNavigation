@@ -12,15 +12,17 @@
         tools:layout="@layout/fragment_first_destination" >
         <action
             android:id="@+id/firstDestinationToSecondDestination"
-            app:destination="@id/secundDestinationFragment" />
+            app:destination="@id/secondDestinationFragment" />
     </fragment>
     <fragment
-        android:id="@+id/secundDestinationFragment"
-        android:name="com.example.navigationcomponent.SecundDestinationFragment"
-        android:label="fragment_secund_destination"
-        tools:layout="@layout/fragment_secund_destination" >
+        android:id="@+id/secondDestinationFragment"
+        android:name="com.example.navigationcomponent.SecondDestinationFragment"
+        android:label="fragment_second_destination"
+        tools:layout="@layout/fragment_second_destination" >
         <action
             android:id="@+id/secondDestinationToFirstDestination"
             app:destination="@id/firstDestinationFragment" />
     </fragment>
 </navigation>
+
+<!--the action are used to define destination and the id you use for navigation this fragment-->
