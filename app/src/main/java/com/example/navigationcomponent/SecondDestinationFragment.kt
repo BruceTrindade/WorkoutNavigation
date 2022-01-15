@@ -39,14 +39,4 @@ class SecondDestinationFragment : Fragment(R.layout.fragment_second_destination)
         // here is define the action of the textView, when click the navigation to another fragment
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SecondDestinationFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }
