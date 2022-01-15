@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_navigation"
+    app:startDestination="@id/firstDestinationFragment">
+
+    <fragment
+        android:id="@+id/firstDestinationFragment"
+        android:name="com.example.navigationcomponent.FirstDestinationFragment"
+        android:label="fragment_first_destination"
+        tools:layout="@layout/fragment_first_destination" >
+        <action
+            android:id="@+id/firstDestinationToSecondDestination"
+            app:destination="@id/secundDestinationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secundDestinationFragment"
+        android:name="com.example.navigationcomponent.SecundDestinationFragment"
+        android:label="fragment_secund_destination"
+        tools:layout="@layout/fragment_secund_destination" >
+        <action
+            android:id="@+id/secondDestinationToFirstDestination"
+            app:destination="@id/firstDestinationFragment" />
+    </fragment>
+</navigation>
